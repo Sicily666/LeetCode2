@@ -1,0 +1,24 @@
+public String rotateString(String s, int left, int right) {
+  if (s == null || s.length() == 0) {
+    return "";
+  }
+  
+  String res = new StringBuilder();
+  int idx = Math.abs(left - right);
+  int len = s.length();
+  idx = idx % s.length();
+  if (left < right) {
+    res.append(s.substring(len - idx));
+    res.append(s.substring(0, len - idx));
+  } else if (left == right) {
+    return s;
+  } else {
+    res.append(s.substring(idx));
+    res.append(s.substring(0,idx));
+  }
+  return res.toString();
+}
+
+Notes:
+1. s.substring(), not s.subString();
+2. 
